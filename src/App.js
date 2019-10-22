@@ -7,7 +7,6 @@ import { addAge, addDate, addFName, addLName, addHobby } from './reducers/Action
 import './App.css'
 
 const { Header, Footer, Content } = Layout
-const InputGroup = Input.Group
 let currentYear = new Date().getFullYear()
 
 class App extends Component{
@@ -36,17 +35,9 @@ class App extends Component{
 
   _handleSubmit(e){
     e.preventDefault()
-
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        console.log(`First Name: ${this.props.fname}`)
-        console.log(`Last Name: ${this.props.lname}`)
-        console.log(`You picked ${this.props.date}`)
-        console.log(`Current Year: ${this.state.currentyear}`)
-        console.log(`Year: ${this.props.year}`)
-        console.log(`Age: ${this.props.age}`)
-        console.log(`Hobby: ${this.props.hobby}`)
       }
     })
   }
@@ -75,26 +66,24 @@ class App extends Component{
                   onChange={(e) => this.props.addLName(e.target.value)}
                   style={{width: '23%'}}/>)}
                 </Form.Item>
-                <InputGroup compact>
-                  <Form.Item>
-                  {getFieldDecorator('first name', {
-                    rules: [{ required: true, message: 'Please enter your date of birth!' }],
-                  })(
-                    <DatePicker 
-                      placeholder='Birthday' 
-                      format='DD/MM'
-                      disabledDate={this._disabledYear}
-                      onChange={this._handleDate} 
-                      style={{marginRight: 10, width: '80%'}} 
-                    />)}
-                  </Form.Item>
-                  <Form.Item>
-                    <InputNumber 
-                      placeholder='Age'
-                      value={this.props.age}                
-                      style={{marginLeft: 10}} disabled/>
-                  </Form.Item>
-                </InputGroup>  
+                <Form.Item>
+                {getFieldDecorator('date', {
+                  rules: [{ required: true, message: 'Please enter your date of birth!' }],
+                })(
+                  <DatePicker 
+                    placeholder='Birthday' 
+                    format='DD/MM'
+                    disabledDate={this._disabledYear}
+                    onChange={this._handleDate} 
+                    style={{width: '15%'}} 
+                  />)}
+                </Form.Item>
+                <Form.Item>
+                  <InputNumber 
+                    placeholder='Age'
+                    value={this.props.age}                
+                    style={{ color: '#000', width: 70}} disabled/>
+                </Form.Item>  
                 <Form.Item>
                 {getFieldDecorator('hobby', {
                   rules: [{ required: true, message: 'Please input your hobby!' }],

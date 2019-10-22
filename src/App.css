@@ -7,6 +7,8 @@
   flex: 3;
   flex-direction: column;
   justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 .header {

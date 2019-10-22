@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "my-enye-form",
-    "public": "public",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -15,4 +14,3 @@
     ]
   }
 }
-
