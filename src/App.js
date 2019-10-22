@@ -55,58 +55,60 @@ class App extends Component{
     return (
       <div className="App">
         <Layout>
-          <Header>Enya Form</Header>
+          <Header className='header'>Enya Form</Header>
           <Content>
-            <Form onSubmit={this._handleSubmit}>
-              <Form.Item>
-              {getFieldDecorator('first name', {
-                rules: [{ required: true, message: 'Please input your first name!' }],
-              })(
-                <Input  placeholder='First Name' 
-                onChange={(e) => this.props.addFName(e.target.value)}
-                style={{width: '23%'}}/>)}
-              </Form.Item>
-              <Form.Item>
-              {getFieldDecorator('last name', {
-                rules: [{ required: true, message: 'Please input your last name!' }],
-              })(
-                <Input placeholder='Last Name' 
-                onChange={(e) => this.props.addLName(e.target.value)}
-                style={{width: '23%'}}/>)}
-              </Form.Item>
-              <InputGroup compact>
+            <div className='container'>
+              <Form onSubmit={this._handleSubmit}>
                 <Form.Item>
                 {getFieldDecorator('first name', {
-                  rules: [{ required: true, message: 'Please enter your date of birth!' }],
+                  rules: [{ required: true, message: 'Please input your first name!' }],
                 })(
-                  <DatePicker 
-                    placeholder='Birthday' 
-                    format='DD/MM'
-                    disabledDate={this._disabledYear}
-                    onChange={this._handleDate} 
-                    style={{marginRight: 10, width: '80%'}} 
-                  />)}
+                  <Input  placeholder='First Name' 
+                  onChange={(e) => this.props.addFName(e.target.value)}
+                  style={{width: '23%'}}/>)}
                 </Form.Item>
                 <Form.Item>
-                  <InputNumber 
-                    placeholder='Age'
-                    value={this.props.age}                
-                    style={{marginLeft: 10}} disabled/>
+                {getFieldDecorator('last name', {
+                  rules: [{ required: true, message: 'Please input your last name!' }],
+                })(
+                  <Input placeholder='Last Name' 
+                  onChange={(e) => this.props.addLName(e.target.value)}
+                  style={{width: '23%'}}/>)}
                 </Form.Item>
-              </InputGroup>  
-              <Form.Item>
-              {getFieldDecorator('hobby', {
-                rules: [{ required: true, message: 'Please input your hobby!' }],
-              })(
-                <Input placeholder='Hobby' 
-                onChange={(e) => this.props.addHobby(e.target.value)}
-                style={{width: '23%'}}/>)}
-              </Form.Item>
-              <div></div>
-              <Form.Item>
-                <Button type="primary" htmlType="submit" style={{width: '23%'}}>Sumbit</Button>
-              </Form.Item>
-            </Form>
+                <InputGroup compact>
+                  <Form.Item>
+                  {getFieldDecorator('first name', {
+                    rules: [{ required: true, message: 'Please enter your date of birth!' }],
+                  })(
+                    <DatePicker 
+                      placeholder='Birthday' 
+                      format='DD/MM'
+                      disabledDate={this._disabledYear}
+                      onChange={this._handleDate} 
+                      style={{marginRight: 10, width: '80%'}} 
+                    />)}
+                  </Form.Item>
+                  <Form.Item>
+                    <InputNumber 
+                      placeholder='Age'
+                      value={this.props.age}                
+                      style={{marginLeft: 10}} disabled/>
+                  </Form.Item>
+                </InputGroup>  
+                <Form.Item>
+                {getFieldDecorator('hobby', {
+                  rules: [{ required: true, message: 'Please input your hobby!' }],
+                })(
+                  <Input placeholder='Hobby' 
+                  onChange={(e) => this.props.addHobby(e.target.value)}
+                  style={{width: '23%'}}/>)}
+                </Form.Item>
+                <div></div>
+                <Form.Item>
+                  <Button type="primary" htmlType="submit" style={{width: '23%'}}>Sumbit</Button>
+                </Form.Item>
+              </Form>
+            </div>
           </Content>
           <Footer>Footer</Footer>
         </Layout>
